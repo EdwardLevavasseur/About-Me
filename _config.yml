@@ -7,5 +7,14 @@ avatar: "/home/edward/Pictures/Webcam/MyPicture.jpg"
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
 round-avatar: true
 
+social-network-links:
+  email: "edward.levavasseur@yahoo.fr"
+  facebook: https://www.facebook.com/edward.levavasseur/
+  linkedin: https://www.linkedin.com/in/edward-levavasseur-ph-d-2a791746/
+
+share-links-active:
+  facebook: true
+  linkedin: true
+
 github:
   is_project_page: false
