@@ -1,6 +1,6 @@
 <HTML>
 
-<a href="NotHomePage.html">Data Science<a href="NotHomePage.html">Research<a href="NotHomePage.html">Teaching</a>
+<a href="NotHomePage.html">Data Science</a><a href="NotHomePage.html">Research</a><a href="NotHomePage.html">Teaching</a>
 
 
 
