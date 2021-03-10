@@ -2,9 +2,6 @@ theme: jekyll-theme-cayman
 title: Edward Levavasseur, PhD
 description: Data Scientist - Economist
 
-<HTML>
-<a href="NotHomePage.html">Data Science</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="NotHomePage.html">Research</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="NotHomePage.html">Teaching</a>
-</HTML>
 
 github:
   is_project_page: false
