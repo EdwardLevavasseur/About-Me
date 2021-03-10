@@ -1,6 +1,6 @@
-<p><a href="NotHomePage.html">Not the Home Page</a>
-
-
+<p><a href="NotHomePage.html">Data Science</a>
+<p><a href="NotHomePage.html">Research</a>
+<p><a href="NotHomePage.html">Teaching</a>
 
 
 
