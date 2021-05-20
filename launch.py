@@ -39,6 +39,7 @@ def TextCleaning(Text):
   Text = Text.replace(' p ', '')
   return Text
 
+print("Shamone!")
 
 # Define Bagging function which transforms text into a clean bag of words
 
@@ -62,7 +63,7 @@ def BaggingText(Text):
 
   return Bag
 
-
+print("Shamone 2!")
 
 import nltk
 nltk.download('stopwords')
