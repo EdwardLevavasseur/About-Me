@@ -43,6 +43,8 @@ print("Shamone!")
 
 # Define Bagging function which transforms text into a clean bag of words
 
+sudo pip install -U nltk
+
 import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
