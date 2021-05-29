@@ -39,7 +39,6 @@ def TextCleaning(Text):
   Text = Text.replace(' p ', '')
   return Text
 
-print("Shamone!")
 
 # Define Bagging function which transforms text into a clean bag of words
 
@@ -63,7 +62,6 @@ def BaggingText(Text):
 
   return Bag
 
-print("Shamone 2!")
 
 import nltk
 nltk.download('stopwords')
@@ -76,8 +74,6 @@ import pandas as pd
 
 Data = pd.read_csv('/home/edward/QueryResults_Clean2.csv', sep=',', engine='python', error_bad_lines=False)
 
-
-print("Data is uploaded!")
 
 # Count vectorizer
 
@@ -96,8 +92,6 @@ X = count_vectorizer.fit_transform(Corpus)
 
 Count_Data = pd.DataFrame(data = X.toarray(),columns = count_vectorizer.get_feature_names())
 
-print("Count Vectorizer Done!")
-
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.datasets import make_multilabel_classification
 
@@ -112,8 +106,6 @@ Count_LDA =  lda.transform(X)
 
 Count_LDA = pd.DataFrame(data = Count_LDA)
 
-
-print("LDA is Done!")
 
 
 # Define function that maps 
@@ -143,26 +135,20 @@ def Map_to_Vectorizer(Text, Title):
 def Unsupervised_Tagger(Title, Text):
   Test, Test_Bag = Map_to_Vectorizer(Title, Text)
   Test_Data = pd.DataFrame(data = Test,columns = Count_Data.columns)
-  print(Test_Data)
   X = Test_Data
   Test_LDA =  lda.transform(X)
   Test_LDA = pd.DataFrame(data = Test_LDA)
-  print(Test_LDA)
   zipped_lists = zip(list(Test_LDA.iloc[0]), list(Test_LDA.columns))
   sorted_pairs = sorted(zipped_lists, reverse=True)
   tuples = zip(*sorted_pairs)
 
   LDA, Categories = [list(tuple) for tuple in  tuples]
 
-  print(LDA)
-  print(Categories)
-
   Tags = []
 
   for i,topic in enumerate(lda.components_):
     if (i == Categories[0]) & (LDA[0] > 0.9):
       bla = [count_vectorizer.get_feature_names()[i] for i in topic.argsort()[-3:]]
-      print(bla)
       for j in range(len(bla)):
           Tags.append(bla[-j-1])
     for h in range(0,3):
@@ -170,14 +156,11 @@ def Unsupervised_Tagger(Title, Text):
         bla = [count_vectorizer.get_feature_names()[i] for i in topic.argsort()[-10:]]
         for j in range(len(bla)):
           if bla[-j-1] in Test_Bag:
-            print(bla[-j-1])
             Tags.append(bla[-j-1])
 
   Tags = list(set(Tags))
 
   return Tags
-
-print("Yes Sir!")
 
 import gradio as gr
 
