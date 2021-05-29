@@ -39,7 +39,6 @@ def TextCleaning(Text):
   Text = Text.replace(' p ', '')
   return Text
 
-print("Shamone!")
 
 # Define Bagging function which transforms text into a clean bag of words
 
@@ -63,7 +62,6 @@ def BaggingText(Text):
 
   return Bag
 
-print("Shamone 2!")
 
 import nltk
 nltk.download('stopwords')
@@ -75,8 +73,6 @@ from nltk.corpus import stopwords
 import pandas as pd
 
 Data = pd.read_csv('/home/edward/QueryResults_Clean2.csv', sep=',', engine='python', error_bad_lines=False)
-
-print("Data is uploaded!")
 
 
 # Count vectorizer
@@ -96,10 +92,6 @@ X = count_vectorizer.fit_transform(Corpus)
 
 Count_Data = pd.DataFrame(data = X.toarray(),columns = count_vectorizer.get_feature_names())
 
-
-print("First Vectorization is done!")
-
-print('Len Count_Data : ', len(Count_Data.columns))
 
 # Create list with all "real" tags and create list of all tags for each individual
 
@@ -121,9 +113,6 @@ for i in range(len(Data)):
   Data['Tag_Bags'].iloc[i] = Personal_Tags
   
 
-print("Variable Tag Bags Done!")
-
-
 # Reorder all Tags by frequency
 
 UniqueTags = list(set(Tags))
@@ -142,9 +131,6 @@ Number, UniqueTags = [list(tuple) for tuple in  tuples]
 TopTags = UniqueTags[0:187]
 
 
-print("Identified Top 187 Tags!")
-
-
 Data['Clean_Tags'] = 0
 
 for i in range(len(Data)):
@@ -153,9 +139,6 @@ for i in range(len(Data)):
     if (Data['Tag_Bags'].iloc[i][j] in TopTags):
       Individual_Bag.append(Data['Tag_Bags'].iloc[i][j])
   Data['Clean_Tags'].iloc[i] = Individual_Bag
-
-print("Kept only 187 top tags!")
-
 
 # Count vectorizer
 
@@ -178,10 +161,6 @@ Targets_Data = pd.DataFrame(data = X.toarray(),columns = count_vectorizer.get_fe
 for i in range(len(Targets_Data.columns)):
   VariableName = str(Targets_Data.columns[i])
   Targets_Data[VariableName][Targets_Data[VariableName] > 0] = 1
-print("Targets DataFrame Created!")
-
-print("Len Targets :", len(Targets_Data.columns))
-
 
 
 
@@ -218,11 +197,6 @@ Supervised_train = pd.concat([X_train, y_train], axis=1)
 Supervised_test = pd.concat([X_test, y_test], axis=1)
 
 
-print("DataFrame created, and test-train split done!")
-
-
-print('length of supervised train : ', len(Supervised_train.columns))
-
 
 
 # Fit 200 logistic regressions - one for each Tag - on the 500 features, and store in dictionary
@@ -240,9 +214,6 @@ for i in range(456,len(Supervised_Data.columns)):
     LogitModels["model_{0}".format(i)] = LogitReg["Logit_{0}".format(i)].fit(X, y)
 
 
-print('logistics done!')
-
-print('length of supervised train : ', len(Supervised_Data.columns))
 
 
 
@@ -261,8 +232,6 @@ for i in range(456,len(Supervised_train.columns)):
       print(i)
       
       
-print('Random forests done!')
-
 
 # Define function that maps 
 
@@ -304,9 +273,6 @@ def ForestLogit_Tagger(Title, Text):
         Tags.append(Supervised_Data.columns[i])
     Tags = list(set(Tags))
   return Tags
-
-
-print("ForestLogit_Tagger defined!")
 
 
 
