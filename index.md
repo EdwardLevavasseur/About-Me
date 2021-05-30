@@ -14,6 +14,9 @@
 <p>I am currently attending an OpenClassrooms / Central Supelec trainning program to learn Machine Learning engineering.</p>
 
 <p>My research has focused on the development and application to data of mutli-dimensional dissimilarity criteria, applied to evaluate Equality of Opportunity in      Educational systems.</p>
-</body>
+
+<p>My CV: </p><a href="CV.pdf" download>Download File</a>
+  
+  </body>
 
 </HTML>
