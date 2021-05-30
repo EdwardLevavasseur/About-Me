@@ -15,7 +15,7 @@
 
 <p>My research has focused on the development and application to data of mutli-dimensional dissimilarity criteria, applied to evaluate Equality of Opportunity in      Educational systems.</p>
 
-<p>My CV :  <a href="CV.pdf" download>CV</a></p>
+<a href="CV.pdf" download>Download my CV</a>
   
   </body>
 
